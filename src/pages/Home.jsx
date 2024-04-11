@@ -1,35 +1,58 @@
-import { useState, useEffect } from "react"
-import { PostHead } from "../components/PostHead";
-import styles from "../styles/styles.module.css";
+import { useEffect } from 'react';
+import { HashLoader } from 'react-spinners';
+import { usePostsContext } from '../hooks/usePostsContext.js';
+import { useAuthContext } from '../hooks/useAuthContext.js';
+import PostHead from '../components/PostHead';
+import PostForm from '../components/PostForm';
+import styles from '../styles/styles.module.scss';
 
-export const Home = () => {
-    const [posts, setPosts] = useState(null);
+const Home = () => {
+    const { posts, dispatch } = usePostsContext();
+    const { user } = useAuthContext();
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const response = await fetch('http://localhost:3000/api/posts');
+            const response = await fetch('https://diary-api-nbqk.onrender.com/api/posts', {
+                headers: {
+                    'Authorization': `Bearer ${user.token}`
+                }
+            });
             const json = await response.json();
 
-            if (response.ok) setPosts(json);
+            if (response.ok) dispatch({ type: 'SET_POSTS', payload: json });
         }
-        fetchPosts();
-    }, []);
 
-  return (
-    <>
-        <div>
-            <h1> Posts </h1>
+        if (user) fetchPosts();
+    }, [user, dispatch]);
 
-            <ul className={styles.postList}>
-                {posts && posts.map(post => {
-                    <PostHead key={post._id} post={post}/>
-                })}
-            </ul>
-        </div>
+    if (!posts) {
+        return (
+            <div className="spinner">
+                <HashLoader
+                    color="#36d7b7"
+                    size={200}
+                />
+            </div>
+        );
+    }
 
-        <div>
+    return (
+        <>
+            <div>
+                <h1> Posts </h1>
 
-        </div>
-    </>
-  )
-}
+                <ul className={styles.postList}>
+                    {posts && posts.map(post => (
+                        <PostHead key={post._id} post={post} />
+                    ))}
+                </ul>
+            </div>
+
+            <div>
+                <PostForm />
+            </div>
+        </>
+    );
+};
+
+export default Home;
