@@ -1,27 +1,22 @@
-import { useRoutes, Navigate } from 'react-router-dom';
-import { useAuthContext } from './hooks/useAuthContext';
-import Layout from './pages/Layout';
-import Home from './pages/Home';
-import DiaryPost from './pages/DiaryPost';
-import Signup from './pages/Signup';
-import Login from './pages/Login';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import Signup from "./pages/Signup/Signup";
+import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
-    const { user } = useAuthContext();
-
-    const elements = useRoutes([
-        { path: '/', 
-            element: <Layout />,
-            children: [
-                { path: '/', element: user ? <Home /> : <Navigate to="/api/login" /> },
-                { path: '/api/posts/:id', element: user ? <DiaryPost /> : <Navigate to="/api/login" /> },
-                { path: '/api/signup', element: !user ? <Signup /> : <Navigate to="/" /> },
-                { path: '/api/login', element: !user ? <Login /> : <Navigate to="/" /> },
-            ]
-        }
-    ]);
-
-    return elements;
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <div className="pages">
+        <Routes>
+          <Route path="/dashboard" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 };
 
 export default App;

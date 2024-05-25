@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background: rgb(189, 187, 187);
+    margin: 0;
+    font-family:"Poppins", sans-serif;
+}
+:root {
+    --primary: #1aac83;
+    --error: #e7195a;
+}
+header .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 10px 5px #333;
+    justify-content: space-between;
+}
+header {
+    background: #fff;
+}
+header nav a {
+    color: #333;
+    text-decoration: none;
+}
+form.signup, form.login {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 4px;
+}
+input {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+form button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    margin: 4px 2px;
+    font-size: 16px;
+    cursor: pointer;
+    width:100%;
+}
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.profile-logo {
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: slategray;
+}
+.profile-name {
+    font-size: medium;
+}
+.profile-btn {
+    border-style: none;
+    background-color: #fff;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 600;
+    
+}
+.profile-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.post-details {
+    background: #fff;
+    border-radius: 4px;
+    margin: 20px auto;
+    padding: 20px;
+    position: relative;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+.post-details h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--primary);
+}
+.post-details h6 {
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: black;
+}
+.post-details p {
+    font-size: 0.9em;
+    color: #555;
+}
+.post-details .edit-delete-btn {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+.post-details .edit-delete-btn span {
+    margin-right: 10px;
+    border-radius: 50%;
+    padding: 6px;
+}
+.post-details .edit-delete-btn span:hover {
+    background-color: #ddd;
+}
+.home-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+}
+.add-btn {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    background-color: blue;
+    border: none;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 5%;
+    left:90%;
+}
+.close-btn {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    background-color: slategrey;
+    border: none;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+}
+.add-entry label, input, textarea {
+    display: block;
+}
+.add-entry input {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.add-entry textarea {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;    
+}
+.add-entry form button {
+    background: var(--primary);
+    border: 0;
+    color: #fff;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.pages {
+    max-width: 1400px;
+    padding: 10px;
+    margin: 0 auto;
+}
+.error {
+    color: var(--error);
+}
